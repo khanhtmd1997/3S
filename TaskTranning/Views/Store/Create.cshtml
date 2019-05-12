@@ -1,0 +1,65 @@
+﻿@model TaskTranning.ViewModels.StoreViewModel
+@using TaskTranning.Resources
+@inject ResourcesServices Localizer
+
+@{
+    ViewBag.Title = Localizer.GetLocalizedHtmlString("Create Page");
+    Layout = "_NavbarDataTable";
+}
+<div class="formbody">
+    <h1>@Localizer.GetLocalizedHtmlString("Create Page")</h1>
+    <div id="form">
+        @if (ViewData["errorMessage"] != null)
+        {
+            <h5 class="text-danger text-center">@ViewData["errorMessage"]</h5>
+        }
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label asp-for="StoreName">@Localizer.GetLocalizedHtmlString("StoreName") * :</label>
+                <input asp-for="StoreName" type="text" class="form-control"placeholder=@Localizer.GetLocalizedHtmlString("Please enter StoreName")/>
+                <span asp-validation-for="StoreName" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone">@Localizer.GetLocalizedHtmlString("Phone") * :</label>
+                <input asp-for="Phone" type="number" class="form-control"placeholder=@Localizer.GetLocalizedHtmlString("Please enter Phone")/>
+                <span asp-validation-for="Phone" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email">@Localizer.GetLocalizedHtmlString("Email") * :</label>
+                <input asp-for="Email" type="email" class="form-control" placeholder=@Localizer.GetLocalizedHtmlString("Please enter Email")/>
+                <span asp-validation-for="Email" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Street">@Localizer.GetLocalizedHtmlString("Street") * :</label>
+                <input asp-for="Street" type="text" class="form-control" placeholder=@Localizer.GetLocalizedHtmlString("Please enter Street")/>
+                <span asp-validation-for="Street" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="City">@Localizer.GetLocalizedHtmlString("City") * :</label>
+                <input asp-for="City" type="text" class="form-control" placeholder=@Localizer.GetLocalizedHtmlString("Please enter City")/>
+                <span asp-validation-for="City" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State">@Localizer.GetLocalizedHtmlString("State"):</label>
+                <input asp-for="State" type="text" class="form-control"/>
+                <span asp-validation-for="State" class="form-text text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZipCode">@Localizer.GetLocalizedHtmlString("ZipCode") * :</label>
+                <input asp-for="ZipCode" type="text" class="form-control" placeholder=@Localizer.GetLocalizedHtmlString("Please enter ZipCode")/>
+                <span asp-validation-for="ZipCode" class="form-text text-danger"></span>
+            </div>
+            <div class="container">
+                <div class="row button">
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-primary">@Localizer.GetLocalizedHtmlString("Create")</button>
+                    </div>
+                </div>
+            </div>
+    
+        </form>
+        <div class="list-group link">
+            <a class="text-primary" asp-action="Index">@Localizer.GetLocalizedHtmlString("Back to List")</a>
+        </div>
+    </div>
+</div>
